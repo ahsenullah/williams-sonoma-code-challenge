@@ -73,16 +73,16 @@ public class RangesHelper {
 
 	private List<Range> sortRangesInSequence(List<String> list) {		
 		List<Range> returnList = new ArrayList<>();
-		for(int i=0;i<list.size();i++){
-			String dataStr = list.get(i);
-			String [] dataVal = dataStr.split(",");
+		
+		list.forEach(rangeStr->{
+			String [] dataVal = rangeStr.split(",");
 			Range range = new Range();
 			range.first=Integer.parseInt(dataVal[0]);
 			range.second=Integer.parseInt(dataVal[1]);
-			returnList.add(range);			
-		}		
-		Collections.sort(returnList);
-		
+			returnList.add(range);	
+		});
+
+		Collections.sort(returnList);		
 		return returnList;
 	}
 	
